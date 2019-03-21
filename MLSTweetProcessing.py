@@ -3,6 +3,7 @@ processed_data= []
 twitter_handles = [
 '@ATLUTD',
 '@ChicagoFire',
+'@fccincinnati',
 '@ColoradoRapids',
 '@ColumbusCrewSC',
 '@dcunited',
@@ -29,6 +30,7 @@ twitter_handles = [
 TeamHashtags = [
 '#ATL',
 '#CHI',
+'#CIN',
 '#COL',
 '#CLB',
 '#DC',
@@ -52,6 +54,7 @@ TeamHashtags = [
 '#VAN'
 'vATL',
 'vCHI',
+'vCIN',
 'vCOL',
 'vCLB',
 'vDC',
@@ -74,7 +77,35 @@ TeamHashtags = [
 'vTOR',
 'vVAN'
 ]
-   
+  
+TeamEmojis = [
+'#UniteAndConquer',
+'#cf97',
+'#FCCincy',
+'#Crew96',
+'#Rapids96',
+'#DCU',
+'#DTID',
+'#ForeverOrange',
+'#LAGalaxy',
+'#LAFC',
+'#MNUFC',
+'#IMFC',
+'#NERevs',
+'#NYCFC',
+'#RBNY',
+'#FaceOfCity',
+'#DOOP',
+'#RCTID',
+'#RSL',
+'#Quakes74',
+'#SoundersMatchday',
+'#ForGloryForCity',
+'#TFCLive',
+'#VWFC'
+]
+
+  
 eMLS = ['eMLS']
 
 import fileinput
@@ -89,14 +120,24 @@ for line in fileinput.input("C:\\Users\\adsmith\\Desktop\\STC_Docs\\MLSTeamsWord
         handle=handle.replace("@","")
         if handle == mention:
             teamhashtag = ''
-            output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag)
+			emojihash = ''
+            output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
             output = '\t'.join(output_data)+'\n'
             processed_data.append(output)
     for team in TeamHashtags:
         if team in text:
             teamhashtag = team[1:]
             handle = ''
-            output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag)
+			emojihash = ''
+            output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
+            output = '\t'.join(output_data)+'\n'
+            processed_data.append(output)
+    for emoji in TeamEmojis:
+        if emoji in text:
+            handle = ''
+            teamhashtag = ''
+			emojihash = emoji
+			output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
             output = '\t'.join(output_data)+'\n'
             processed_data.append(output)
     for entry in eMLS:
