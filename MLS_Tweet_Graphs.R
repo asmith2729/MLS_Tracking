@@ -14,9 +14,8 @@ df <- read.csv("/home/ubuntu/ShinyDocs/TwitterScraping/MLSTweets_TeamByDay.txt",
 
 
 
-names(df)<-c("TweetID","DateTime","Handle","Retweet_Flg", "TeamHashtag")
 #set environment variables to connect
-Sys.setenv("AWS_ACCESS_KEY_ID" = "AKIAIDFYMPJK4EJ2ZNKA","AWS_SECRET_ACCESS_KEY" = "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","AWS_DEFAULT_REGION" = "us-east-2")
+Sys.setenv("AWS_ACCESS_KEY_ID" = "xxxxxxxxxxxxxxxxx","AWS_SECRET_ACCESS_KEY" = "xxxxxxxxxxxxxxxxxxxxxx","AWS_DEFAULT_REGION" = "us-east-2")
 
 #gets the file of team data from s3 bucket
 obj<-get_object('Teams.csv','adam.personal')
