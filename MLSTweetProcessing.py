@@ -120,7 +120,7 @@ for line in fileinput.input("C:\\Users\\adsmith\\Desktop\\STC_Docs\\MLSTeamsWord
         handle=handle.replace("@","")
         if handle == mention:
             teamhashtag = ''
-			emojihash = ''
+            emojihash = ''
             output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
             output = '\t'.join(output_data)+'\n'
             processed_data.append(output)
@@ -128,7 +128,7 @@ for line in fileinput.input("C:\\Users\\adsmith\\Desktop\\STC_Docs\\MLSTeamsWord
         if team in text:
             teamhashtag = team[1:]
             handle = ''
-			emojihash = ''
+            emojihash = ''
             output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
             output = '\t'.join(output_data)+'\n'
             processed_data.append(output)
@@ -136,8 +136,8 @@ for line in fileinput.input("C:\\Users\\adsmith\\Desktop\\STC_Docs\\MLSTeamsWord
         if emoji in text:
             handle = ''
             teamhashtag = ''
-			emojihash = emoji
-			output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
+            emojihash = emoji
+            output_data = (tweet_id, datetime, handle, retweet_flg, teamhashtag, emojihash)
             output = '\t'.join(output_data)+'\n'
             processed_data.append(output)
     for entry in eMLS:
